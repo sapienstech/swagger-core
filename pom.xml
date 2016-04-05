@@ -513,4 +513,19 @@
         <enforcer-plugin-version>1.4</enforcer-plugin-version>
         <failsafe-plugin-version>2.19.1</failsafe-plugin-version>
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>sap-rel</id>
+            <name>sapiens releases</name>
+            <url>http://bdmsdev:8081/artifactory/libs-releases-local</url>
+        </repository>
+        <snapshotRepository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>sap-snap</id>
+            <name>sapiens snapshots</name>
+            <url>http://bdmsdev:8081/artifactory/libs-snapshots-local</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 </project>

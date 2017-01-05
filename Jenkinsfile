@@ -1,6 +1,7 @@
 #!groovy
 
 node('general_ec2') {
+    checkout scm
 
     String jdktool = tool name: 'jdk8', type: 'hudson.model.JDK'
     withEnv(["PATH+JDK=${jdktool}/bin", "JAVA_HOME=${jdktool}"]) {

@@ -12,11 +12,11 @@ node('general_ec2') {
             def buildInfo = Artifactory.newBuildInfo()
             buildInfo.env.capture = true
             def rtMaven = Artifactory.newMavenBuild()
+            rtMaven.deployer server: server, releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local'
             rtMaven.tool = 'maven339'
             rtMaven.run pom: 'pom.xml',
                     goals: 'install -DskipTests -s settings.xml',
                     buildInfo: buildInfo
-            rtMaven.deployer server: server, releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local'
 
             buildInfo.retention maxBuilds: 10, maxDays: 7, deleteBuildArtifacts: true
             server.publishBuildInfo buildInfo
